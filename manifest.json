@@ -13,15 +13,15 @@
             "matches": [
                  "*://*/*"
             ],
-            "js": [ "common.js", "beforeYouContinueClicker.js" ]
+            "js": [ "beforeYouContinueClicker.js" ]
         }
-        // ,
-        // {
-        //     "matches": [
-        //          "*://*.youtube.*/*"
-        //     ],
-        //     "js": [ "common.js", "signInToYouTubeClicker.js" ]
-        // }
+        ,
+        {
+            "matches": [
+                 "*://*.youtube.com/*"
+            ],
+            "js": [ "signInToYouTubeClicker.js" ]
+        }
     ],
     "web_accessible_resources": [ "page-scripts/onLoad.js" ]
 }
