@@ -1,4 +1,3 @@
-const runlog = {}
 main()
 
 /** handles Google "Before you continue" dialog */
@@ -7,11 +6,7 @@ async function main() {
     if (!isConsentHost()) {
         return
     }
-    if (runlog[location.href] === undefined) {
-        runlog[location.href] = 0
-    }
     await whenLoaded()
-    console.log('loaded')
     const button = findIAgreeButton()
     if (button) {
         resolveBeforeYouContinueDialog(button)
@@ -33,11 +28,7 @@ function isConsentHost() {
 function findIAgreeButton() {
     // html body.EIlDfe div#yDmH0d.MCcOAc.IqBfM.ecJEib.EWZcud.cjGgHb.d8Etdd.LcUz9d c-wiz.SSPGKf.fkimef div.T4LgNb.eejsDc div.kFwPee div.cui-csn-data div.fkimef.I47yTd.k8Lt0 div div.OvJdSb.UTd6ef form.A28uDc div#introAgreeButton.U26fgb.O0WRkf.oG5Srb.HQ8yf.C0oVfc.wtr0xd.ic02He.M9Bg4d span.CwaK9 span.RveJvd.snByac
     const dialog = document.querySelector('#introAgreeButton')
-    console.log('dialog', dialog)
     const button = dialog?.querySelector('span')
-    console.log('button', button)
-    runlog[location.href]++
-    console.log(runlog[location.href], location.href, runlog)
     return button
 }
 
@@ -53,7 +44,6 @@ function resolveBeforeYouContinueDialog(button) {
  * @returns {Promise<undefined>} when the document is loaded
  */
 function whenLoaded() {
-    console.log('whenLoaded', document.readyState)
     if (document.readyState == 'complete') {
         return Promise.resolve()
     }
