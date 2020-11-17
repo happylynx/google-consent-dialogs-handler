@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Google dialogs consenter",
+    "version": "0.1",
+    "description": "Google \"Before you continue\" and \"Sign in to YouTube\" dialogs consenter",
+    "icons": {
+        "48": "icons/light.svg",
+        "96": "icons/light.svg"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                 "*://*/*"
+            ],
+            "js": [ "common.js", "beforeYouContinueClicker.js" ]
+        }
+        // ,
+        // {
+        //     "matches": [
+        //          "*://*.youtube.*/*"
+        //     ],
+        //     "js": [ "common.js", "signInToYouTubeClicker.js" ]
+        // }
+    ],
+    "web_accessible_resources": [ "page-scripts/onLoad.js" ]
+}
