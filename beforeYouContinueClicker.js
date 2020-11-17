@@ -2,7 +2,6 @@ main()
 
 /** handles Google "Before you continue" dialog */
 async function main() {
-    console.log("from main", location.href)
     if (!isConsentHost()) {
         return
     }
