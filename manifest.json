@@ -23,5 +23,10 @@
             "js": [ "signInToYouTubeClicker.js" ]
         }
     ],
-    "web_accessible_resources": [ "page-scripts/onLoad.js" ]
+    "web_accessible_resources": [ "page-scripts/onLoad.js" ],
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "google-consent-dialogs-handler@186bfee4-9a8c-43da-ace2-9155758c5911"
+        }
+    }
 }
