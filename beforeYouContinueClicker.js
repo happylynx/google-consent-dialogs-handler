@@ -26,8 +26,7 @@ function isConsentHost() {
  */
 function findIAgreeButton() {
     // html body.EIlDfe div#yDmH0d.MCcOAc.IqBfM.ecJEib.EWZcud.cjGgHb.d8Etdd.LcUz9d c-wiz.SSPGKf.fkimef div.T4LgNb.eejsDc div.kFwPee div.cui-csn-data div.fkimef.I47yTd.k8Lt0 div div.OvJdSb.UTd6ef form.A28uDc div#introAgreeButton.U26fgb.O0WRkf.oG5Srb.HQ8yf.C0oVfc.wtr0xd.ic02He.M9Bg4d span.CwaK9 span.RveJvd.snByac
-    const dialog = document.querySelector('#introAgreeButton')
-    const button = dialog?.querySelector('span')
+    const button = document.querySelector('#introAgreeButton span')
     return button
 }
 

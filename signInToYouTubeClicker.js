@@ -2,9 +2,7 @@ main()
 
 /** handles Google "Sign in to YouTube" dialog */
 async function main() {
-    console.log("from main")
     await whenLoaded()
-    console.log('loaded')
     let button = findIAgreeButton()
     if (button) {
         resolveDialog(button)
