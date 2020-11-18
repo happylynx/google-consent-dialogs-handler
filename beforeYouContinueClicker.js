@@ -8,7 +8,7 @@ async function main() {
     await whenLoaded()
     const button = findIAgreeButton()
     if (button) {
-        resolveBeforeYouContinueDialog(button)
+        resolveDialog(button)
         return
     }
 }
@@ -34,7 +34,7 @@ function findIAgreeButton() {
 /**
  * @param {HTMLElementPrototype} button 
  */
-function resolveBeforeYouContinueDialog(button) {
+function resolveDialog(button) {
     button.click()
 }
 
