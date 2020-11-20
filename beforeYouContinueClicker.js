@@ -18,7 +18,7 @@ async function main() {
  */
 function isConsentHost() {
     const host = location.host
-    return host === 'consent.youtube.com' || host.match(/^consent.google.[a-z]{2,7}$/)
+    return host === 'consent.youtube.com' || host.match(/^consent.google(.[a-z]{2,3})?.[a-z]{2,3}$/)
 }
 
 /**
