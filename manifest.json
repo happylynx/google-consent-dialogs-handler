@@ -13,14 +13,14 @@
             "matches": [
                  "*://*/*"
             ],
-            "js": [ "wait.js", "beforeYouContinueClicker.js" ]
+            "js": [ "common.js", "beforeYouContinueClicker.js" ]
         }
         ,
         {
             "matches": [
                  "*://*.youtube.com/*"
             ],
-            "js": [ "wait.js", "signInToYouTubeClicker.js" ]
+            "js": [ "common.js", "signInToYouTubeClicker.js" ]
         }
     ],
     "web_accessible_resources": [ "page-scripts/onLoad.js" ],
