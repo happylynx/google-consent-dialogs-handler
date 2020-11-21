@@ -9,33 +9,13 @@ async function main() {
         return
     }
     noteHtmlToDom("signInToYoutube-failAfterLoad")
-    await addMutationObserver()
+    await addMutationObserver(
+        document.querySelector('ytd-app'),
+        false,
+        findButton,
+        resolveDialog
+    )
     noteHtmlToDom("signInToYoutube-failAfter10s")
-}
-
-async function addMutationObserver() {
-    const observedElement = document.querySelector('ytd-app')
-    const config = {
-        attributes: false,
-        childList: true, 
-        subtree: false
-    }
-    let counter = 0
-    function mutationCallback(mutationList, observer) {
-        counter++
-        const button = findButton()
-        if (!button) {
-            noteToDom(`mutation observer ${counter}`, 'button not found')
-            return
-        }
-        noteToDom(`mutation observer ${counter}`, 'button found')
-        observer.disconnect()
-        resolveDialog(button)
-    }
-    const observer = new MutationObserver(mutationCallback)
-    observer.observe(observedElement, config)
-    await wait(10 * 1000)
-    observer.disconnect()
 }
 
 /**

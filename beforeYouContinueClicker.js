@@ -13,33 +13,13 @@ async function main() {
         return
     }
     noteHtmlToDom("beforeYouContinue-failAfterLoad")
-    await addMutationObserver()
+    await addMutationObserver(
+        document.body,
+        true,
+        findButton,
+        resolveDialog
+    )
     noteHtmlToDom("beforeYouContinue-failAfter10s")
-}
-
-async function addMutationObserver() {
-    const observedElement = document.body
-    const config = {
-        attributes: false,
-        childList: true,
-        subtree: true
-    }
-    let counter = 0
-    function mutationCallback(mutationList, observer) {
-        counter++
-        const button = findButton()
-        if (!button) {
-            noteToDom(`mutation observer ${counter}`, 'button not found')
-            return
-        }
-        noteToDom(`mutation observer ${counter}`, 'button found')
-        observer.disconnect()
-        resolveDialog(button)
-    }
-    const observer = new MutationObserver(mutationCallback)
-    observer.observe(observedElement, config)
-    await wait(10 * 1000)
-    observer.disconnect()
 }
 
 /**
