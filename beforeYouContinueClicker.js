@@ -9,9 +9,12 @@ async function main() {
     const button = findButton()
     if (button) {
         resolveDialog(button)
+        noteHtmlToDom('test')
         return
     }
+    noteHtmlToDom("beforeYouContinue-failAfterLoad")
     await addMutationObserver()
+    noteHtmlToDom("beforeYouContinue-failAfter10s")
 }
 
 async function addMutationObserver() {
@@ -21,11 +24,15 @@ async function addMutationObserver() {
         childList: true,
         subtree: true
     }
+    let counter = 0
     function mutationCallback(mutationList, observer) {
+        counter++
         const button = findButton()
         if (!button) {
+            noteToDom(`mutation observer ${counter}`, 'button not found')
             return
         }
+        noteToDom(`mutation observer ${counter}`, 'button found')
         observer.disconnect()
         resolveDialog(button)
     }

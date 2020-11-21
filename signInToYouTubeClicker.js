@@ -8,7 +8,9 @@ async function main() {
         resolveDialog(button)
         return
     }
+    noteHtmlToDom("signInToYoutube-failAfterLoad")
     await addMutationObserver()
+    noteHtmlToDom("signInToYoutube-failAfter10s")
 }
 
 async function addMutationObserver() {
@@ -18,11 +20,15 @@ async function addMutationObserver() {
         childList: true, 
         subtree: false
     }
+    let counter = 0
     function mutationCallback(mutationList, observer) {
+        counter++
         const button = findButton()
         if (!button) {
+            noteToDom(`mutation observer ${counter}`, 'button not found')
             return
         }
+        noteToDom(`mutation observer ${counter}`, 'button found')
         observer.disconnect()
         resolveDialog(button)
     }
