@@ -67,7 +67,6 @@ function whenLoaded() {
     if (document.readyState == 'complete') {
         return Promise.resolve()
     }
-    console.log('document not loaded')
     return messageBasedLoadEvent()
 }
 
@@ -76,7 +75,6 @@ function messageBasedLoadEvent() {
 }
 
 function pageLoadedPromiseBody(accept, reject) {
-    console.log('promise body')
     let scriptElement = undefined
     function messageEventCallback(message) {
         if (message.data !== 'loaded') {
