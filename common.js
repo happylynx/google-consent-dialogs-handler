@@ -9,8 +9,9 @@ function noteToDom(key, value) {
     const stringifiedValue = JSON.stringify(value)
     const script = document.createElement('script')
     script.text = `
-    window.googleConsentsDialogHandler = window.googleConsentsDialogHandler || {}
-    window.googleConsentsDialogHandler[${stringifiedKey}] = ${stringifiedValue}
+    window._googleConsentsDialogHandler = window._googleConsentsDialogHandler || {}
+    window._googleConsentsDialogHandler[${stringifiedKey}] = ${stringifiedValue}
+    console.log('inner', window.location.href, window._googleConsentsDialogHandler)
     `
     script.async = false
     script.defer = false
