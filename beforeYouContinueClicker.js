@@ -4,7 +4,7 @@ main()
 
 /** handles Google "Before you continue" dialog */
 async function main() {
-    if (!isConsentHost()) {
+    if (!isConsentPage()) {
         return
     }
     await whenLoaded()
@@ -27,9 +27,10 @@ async function main() {
 /**
  * @returns {boolean}
  */
-function isConsentHost() {
+function isConsentPage() {
     const host = location.host
-    return host === 'consent.youtube.com' || host.match(/^consent.google(.[a-z]{2,3})?.[a-z]{2,3}$/)
+    const hostOk =  host === 'consent.youtube.com' || host.match(/^consent.google(.[a-z]{2,3})?.[a-z]{2,3}$/)
+    return hostOk && location.pathname.startsWith('/intro/')
 }
 
 /**
