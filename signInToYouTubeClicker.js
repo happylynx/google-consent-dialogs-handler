@@ -4,6 +4,9 @@ main()
 
 /** handles Google "Sign in to YouTube" dialog */
 async function main() {
+    if (!isYoutubePage()) {
+        return
+    }
     await whenLoaded()
     let button = findButton()
     if (button) {
@@ -45,4 +48,8 @@ function whenLoaded() {
         return Promise.resolve()
     }
     console.warn('Ups. This still needs some love.')
+}
+
+function isYoutubePage() {
+    return location.host !== 'consent.youtube.com'
 }
