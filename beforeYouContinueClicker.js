@@ -1,3 +1,5 @@
+'use strict'
+
 main()
 
 /** handles Google "Before you continue" dialog */

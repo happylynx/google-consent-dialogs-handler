@@ -1,3 +1,5 @@
+'use strict'
+
 main()
 
 /** handles Google "Sign in to YouTube" dialog */
