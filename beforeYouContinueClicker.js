@@ -54,8 +54,8 @@ function resolveDialog(button) {
  * @returns {Promise<undefined>} when the document is loaded
  */
 function whenLoaded() {
-    if (document.readyState == 'complete') {
-        return Promise.resolve()
+    if (document.readyState === 'complete') {
+        return
     }
     return messageBasedLoadEvent()
 }
