@@ -44,9 +44,10 @@ function resolveDialog(button) {
  * @returns {Promise<undefined>} when the document is loaded
  */
 function whenLoaded() {
-    if (document.readyState == 'complete') {
+    if (document.readyState === 'complete') {
         return Promise.resolve()
     }
+    // This should never happen since the script is by default injected after the page is loaded
     console.warn('Ups. This still needs some love.')
 }
 
