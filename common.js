@@ -53,3 +53,15 @@ async function addMutationObserver(observedElement, observeSubtree, findButtonFn
     await wait(10 * 1000)
     observer.disconnect()
 }
+
+(() => {
+    const loggingEnabled = false
+    const noop = () => {}
+    function createLogFunction(originalFn) {
+        if (!loggingEnabled) {
+            return noop
+        }
+        return console.log.bind(console, '***')
+    }
+    window.l = {}
+})()
