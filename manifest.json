@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Google consent dialogs handler",
-    "version": "0.2",
+    "version": "0.3",
     "description": "Google \"Before you continue\" and \"Sign in to YouTube\" dialogs handler",
     "icons": {
         "48": "icons/light.svg",
