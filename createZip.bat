@@ -1,0 +1,1 @@
+tar.exe -a -c -f google-consent-dialogs-handler.zip icons page-scripts beforeYouContinueClicker.js common.js manifest.json signInToYouTubeClicker.js
