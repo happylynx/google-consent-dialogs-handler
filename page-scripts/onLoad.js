@@ -1,4 +1,6 @@
-(() => {
+'use strict'
+
+;(() => {
     function notifyContentScript() {
         window.postMessage('loaded', '*')
     }
