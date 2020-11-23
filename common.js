@@ -7,17 +7,14 @@ async function wait(ms) {
 }
 
 function noteToDom(key, value) {
-    const stringifiedKey = JSON.stringify(key)
-    const stringifiedValue = JSON.stringify(value)
     const script = document.createElement('script')
-    script.text = `
-    window._googleConsentsDialogHandler = window._googleConsentsDialogHandler || {}
-    window._googleConsentsDialogHandler[${stringifiedKey}] = ${stringifiedValue}
-    console.log('inner', window.location.href, window._googleConsentsDialogHandler)
-    `
+    script.src = chrome.extension.getURL('page-scripts/logToProperty.js')
     script.async = false
     script.defer = false
+    script.id = 'id' + Math.random().toString().substring(2)
     document.head.appendChild(script)
+    const foundScript = document.querySelector('#' + script.id)
+    window.postMessage({ type: 'logToProperty', key, value }, '*')
     script.remove()
 }
 
